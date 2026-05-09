@@ -1,0 +1,527 @@
+:root {
+    --primary-navy: #0a0f1a; 
+    --accent-gold: #c5a059; 
+    --text-light: #fdfdfd;
+    --text-muted: #a0a5b0;
+    --bg-dark: #05080f;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-light);
+    background-color: var(--primary-navy);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Luxury Header */
+header {
+    background-color: rgba(10, 15, 26, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0 60px; 
+    height: 90px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    transition: transform 0.4s ease-in-out; 
+}
+
+header.header-hidden {
+    transform: translateY(-100%);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-img {
+    height: 75px; 
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.logo-img:hover {
+    opacity: 0.8;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.4s ease;
+}
+
+nav a:hover {
+    color: var(--accent-gold);
+}
+
+/* Cinematic Hero Section */
+/* --- HERO SLIDER UPDATES --- */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    overflow: hidden; /* Keeps things tidy if images shift */
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Smooth luxury fade transition */
+    z-index: 1;
+}
+
+.hero-slide.active {
+    opacity: 1; /* Makes the current slide visible */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Keeps your text perfectly layered on top of the images */
+}
+
+/* Don't forget to keep your .hero h2 and .hero p rules right under here! */
+.hero h2 {
+    font-size: 64px;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 700px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.hero h2 {
+    font-size: 64px;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 700px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.btn-gold {
+    display: inline-block;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 16px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+.btn-gold:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-navy);
+}
+
+/* Minimalist Sections */
+section {
+    padding: 100px 60px; 
+}
+
+.bg-dark-section {
+    background-color: var(--bg-dark);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 38px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.section-header .divider {
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-gold);
+    margin: 0 auto;
+}
+
+/* Elegant Property Cards */
+.grid-container {
+    display: grid;
+    /* Adjusted to 300px to ensure cards sit side-by-side comfortably */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.property-card {
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.property-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border-color: rgba(197, 160, 89, 0.3);
+}
+
+.property-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.property-card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-content h3 {
+    font-size: 24px;
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* High-End Services List */
+.services-wrapper {
+    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-item {
+    text-align: center;
+    padding: 40px 30px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.4s ease;
+    background-color: var(--primary-navy);
+}
+
+.service-item:hover {
+    background-color: rgba(197, 160, 89, 0.05);
+    transform: translateY(-5px);
+    border-color: rgba(197, 160, 89, 0.3);
+}
+
+.service-icon {
+    font-size: 40px;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service-item h4 {
+    color: var(--text-light);
+    font-size: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.service-item p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Floating WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #c5a059; 
+    color: var(--primary-navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(197, 160, 89, 0.4);
+}
+
+.whatsapp-icon {
+    width: 30px;
+    height: 30px;
+    fill: var(--primary-navy);
+}
+
+/* Luxury Footer */
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+footer img {
+    height: 100px; 
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- NEW SLIDING MENU & SCROLL FIXES --- */
+
+/* Fixes smooth scroll so the fixed header doesn't cover section titles */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; 
+}
+
+/* Hide hamburger button on desktop */
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    color: var(--accent-gold);
+    cursor: pointer;
+    z-index: 1001; /* Keeps button above the sliding menu */
+}
+
+/* Responsive Sliding Menu for Tablets & Phones */
+@media (max-width: 950px) {
+    .menu-btn {
+        display: block; /* Show hamburger icon */
+    }
+
+    nav#nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hides the menu completely off the screen to the right */
+        width: 300px;
+        height: 100vh;
+        background-color: var(--primary-navy);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out; /* The Smooth Slide Animation */
+        box-shadow: -5px 0 20px rgba(0,0,0,0.8);
+    }
+
+    /* This class is added by JavaScript to trigger the slide */
+    nav#nav-menu.active {
+        right: 0; 
+    }
+
+    nav#nav-menu a {
+        margin: 25px 0;
+        font-size: 16px;
+    }
+}
+/* 1. Reduce the map height from 450px to 300px */
+/* --- CONTACT SECTION --- */
+
+/* --- CONTACT SECTION --- */
+.contact-container {
+    display: grid;
+    /* This strictly forces exactly 2 columns side-by-side */
+    grid-template-columns: 1fr 1fr; 
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch; /* Makes map and form equal height */
+}
+
+/* Map Styling */
+.contact-map {
+    width: 100%;
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(197, 160, 89, 0.2); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.contact-map iframe {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    border: none;
+}
+
+/* Form & Info Styling */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    margin-bottom: 20px; 
+}
+
+.info-row {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    font-size: 15px; 
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+.info-item i {
+    color: var(--accent-gold);
+    font-size: 20px; 
+    width: 25px;
+    text-align: center;
+}
+
+/* Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    width: 100%;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.input-row input {
+    flex: 1; 
+}
+
+.contact-form input, 
+.contact-form textarea {
+    background-color: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 12px 15px; 
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.contact-form input::placeholder, 
+.contact-form textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background-color: rgba(255,255,255,0.05);
+}
+
+.contact-form button {
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    width: fit-content;
+    margin-top: 5px;
+}
+
+/* Mobile Fixes */
+@media (max-width: 850px) {
+    .contact-container {
+        /* Stacks them only on small screens */
+        grid-template-columns: 1fr; 
+    }
+    
+    .input-row {
+        flex-direction: column;
+    }
+}
