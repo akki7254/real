@@ -26,7 +26,7 @@ header {
     background-color: rgba(10, 15, 26, 0.95);
     backdrop-filter: blur(10px);
     padding: 0 60px; 
-    height: 90px; 
+    height: 120px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,10 +49,15 @@ header.header-hidden {
     height: 100%;
 }
 
+
 .logo-img {
     height: 75px; 
     width: auto;
     object-fit: contain;
+    /* NEW: Magnifies the logo visually by 50% */
+    transform: scale(1.3); 
+    /* Anchors it to the left so it doesn't push off the screen when growing */
+    transform-origin: left center; 
     transition: opacity 0.3s ease;
 }
 
